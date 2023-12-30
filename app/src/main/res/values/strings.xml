@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PropertyShop</string>
+    <string name="sales_price">$%1d</string>
+
+    <string name="street_label">Address</string>
+    <string name="suburb_label">Suburb</string>
+    <string name="state_label">State</string>
+    <string name="postcode_label">Postcode</string>
+    <string name="price_label">Price</string>
+    <string name="new_property_btn_label">New Property</string>
+
+</resources>
