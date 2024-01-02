@@ -8,5 +8,6 @@
     <string name="postcode_label">Postcode</string>
     <string name="price_label">Price</string>
     <string name="new_property_btn_label">New Property</string>
+    <string name="save_property_btn_label">Save</string>
 
 </resources>

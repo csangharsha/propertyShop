@@ -78,9 +78,17 @@
         android:textSize="20dp" />
 
     <Button
+        android:id="@+id/new_property_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/new_property_btn_label"
+        />
+
+    <Button
+        android:id="@+id/save_property_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_property_btn_label"
         />
 
 </LinearLayout>
