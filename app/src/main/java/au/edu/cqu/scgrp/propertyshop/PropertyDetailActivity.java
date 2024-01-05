@@ -13,7 +13,7 @@ import android.os.Bundle;
 import java.util.List;
 import java.util.UUID;
 
-import au.edu.cqu.scgrp.propertyshop.dao.PropertyDao;
+import au.edu.cqu.scgrp.propertyshop.labs.PropertyLab;
 import au.edu.cqu.scgrp.propertyshop.fragments.PropertyFragment;
 import au.edu.cqu.scgrp.propertyshop.models.Property;
 
@@ -39,7 +39,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.property_view_pager);
 
-        mProperties = PropertyDao.getInstance().getAll();
+        mProperties = PropertyLab.getInstance(this).getAll();
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 

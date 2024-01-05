@@ -12,14 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
 import au.edu.cqu.scgrp.propertyshop.AddPropertyActivity;
 import au.edu.cqu.scgrp.propertyshop.PropertyListActivity;
 import au.edu.cqu.scgrp.propertyshop.R;
-import au.edu.cqu.scgrp.propertyshop.dao.PropertyDao;
+import au.edu.cqu.scgrp.propertyshop.labs.PropertyLab;
 import au.edu.cqu.scgrp.propertyshop.models.Property;
 
 public class PropertyFragment extends Fragment {
@@ -56,7 +55,7 @@ public class PropertyFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if(getArguments() != null && getArguments().getSerializable(ARG_PROPERTY_ID) != null) {
             UUID propertyId = (UUID) getArguments().getSerializable(ARG_PROPERTY_ID);
-            Optional<Property> propertyOptional = PropertyDao.getInstance().getById(propertyId);
+            Optional<Property> propertyOptional = PropertyLab.getInstance(getActivity()).getById(propertyId);
             if(propertyOptional.isPresent()) {
                 mProperty = propertyOptional.get();
             } else {
@@ -123,7 +122,7 @@ public class PropertyFragment extends Fragment {
                 property.setState(mStateEditText.getText().toString());
                 property.setPostcode(mPostcodeEditText.getText().toString());
 
-                PropertyDao.getInstance().save(property);
+                PropertyLab.getInstance(getActivity()).save(property);
 
                 Intent intent = new Intent(getActivity(), PropertyListActivity.class);
                 startActivity(intent);

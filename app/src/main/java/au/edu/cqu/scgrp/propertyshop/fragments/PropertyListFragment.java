@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,16 +19,16 @@ import java.util.List;
 
 import au.edu.cqu.scgrp.propertyshop.PropertyDetailActivity;
 import au.edu.cqu.scgrp.propertyshop.R;
-import au.edu.cqu.scgrp.propertyshop.dao.PropertyDao;
+import au.edu.cqu.scgrp.propertyshop.labs.PropertyLab;
 import au.edu.cqu.scgrp.propertyshop.models.Property;
 
 public class PropertyListFragment extends Fragment {
-    private PropertyDao propertyDao;
+    private PropertyLab propertyLab;
     private RecyclerView recyclerView;
     private PropertyListAdapter adapter;
 
     public PropertyListFragment() {
-        propertyDao = PropertyDao.getInstance();
+        propertyLab = PropertyLab.getInstance(getActivity());
     }
 
     public static PropertyListFragment newInstance() {
@@ -53,7 +52,7 @@ public class PropertyListFragment extends Fragment {
     }
 
     private void updateUI() {
-        List<Property> propertyList = propertyDao.getAll();
+        List<Property> propertyList = propertyLab.getAll();
         adapter = new PropertyListAdapter(propertyList);
         recyclerView.setAdapter(adapter);
     }
